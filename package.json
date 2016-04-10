@@ -1,0 +1,28 @@
+{
+  "name": "authy2fa-test",
+  "version": "0.0.1",
+  "description": "Node.js sample app for Authy.com auth2fa on OpenShift 3",
+  "main": "server.js",
+  "dependencies": {
+      "express": "*",
+      "mongodb": "*",
+      "ejs": "*"
+  },
+  "engine": {
+    "node": "*",
+    "npm": "*"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/watkinspd/authy2fa-test.git"
+  },
+  "author": "Peter Watkins <pdwatkins@me.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "http://github.com/watkinspd/authy2fa-test/issues"
+  },
+  "homepage": "http://github.com/watkinspd/authy2fa-test"
+}
