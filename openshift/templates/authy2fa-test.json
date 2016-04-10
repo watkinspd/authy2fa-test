@@ -82,7 +82,7 @@
           "sourceStrategy": {
             "from": {
               "kind": "ImageStreamTag",
-              "namespace": "docker.io/library",
+              "namespace": "library",
               "name": "node:4.4.2"
             }
           }
