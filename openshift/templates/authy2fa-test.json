@@ -82,6 +82,7 @@
           "sourceStrategy": {
             "from": {
               "kind": "ImageStreamTag",
+              "namespace": "docker",
               "name": "nodejs:4.4.2"
             }
           }
