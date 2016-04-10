@@ -82,8 +82,8 @@
           "sourceStrategy": {
             "from": {
               "kind": "ImageStreamTag",
-              "namespace": "docker",
-              "name": "nodejs:4.4.2"
+              "namespace": "openshift",
+              "name": "nodejs:0.10"
             }
           }
         },
