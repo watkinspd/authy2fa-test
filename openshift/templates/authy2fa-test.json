@@ -134,7 +134,7 @@
             "imageChangeParams": {
               "automatic": true,
               "containerNames": [
-                "nodejs-example"
+                "${NAME}"
               ],
               "from": {
                 "kind": "ImageStreamTag",
