@@ -4,12 +4,20 @@
   "description": "Node.js sample app for Authy.com auth2fa on OpenShift 3",
   "main": "server.js",
   "dependencies": {
-      "express": "*",
+      "authy": "^0.3.2",
+      "bcrypt": "^0.8.1",
+      "body-parser": "^1.11.0",
+      "ejs": "*",
+      "express": "^4.11.2",
       "mongodb": "*",
-      "ejs": "*"
+      "mongoose": "4.4.8",
+      "morgan": "^1.5.1",
+      "node-uuid": "^1.4.2",
+      "qs": "^5.2.0",
+      "twilio": "^1.10.0"
   },
   "engine": {
-    "node": "*",
+    "node": ">=4.1.0 <5.5.0",
     "npm": "*"
   },
   "scripts": {
