@@ -206,10 +206,6 @@
                     "value": "${MONGODB_DATABASE}"
                   },
                   {
-                    "name": "MONGODB_ADMIN_PASSWORD",
-                    "value": "${MONGODB_ADMIN_PASSWORD}"
-                  },
-                  {
                     "name": "TWILIO_ACCOUNT_SID",
                     "value": "${TWILIO_ACCOUNT_SID}"
                   },
@@ -310,11 +306,6 @@
     {
       "name": "MONGODB_DATABASE",
       "displayName": "Database Name"
-    },
-    {
-      "name": "MONGODB_ADMIN_PASSWORD",
-      "displayName": "Database Administrator Password",
-      "description": "Password for the database admin user."
     },
     {
       "name": "TWILIO_ACCOUNT_SID",
