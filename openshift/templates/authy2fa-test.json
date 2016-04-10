@@ -78,13 +78,9 @@
           "contextDir": "${CONTEXT_DIR}"
         },
         "strategy": {
-          "type": "Source",
-          "sourceStrategy": {
-            "from": {
-              "kind": "ImageStreamTag",
-              "namespace": "library",
-              "name": "node:4.4.2"
-            }
+          "type": "Docker",
+          "dockerStrategy": {
+            "forcePull": false
           }
         },
         "output": {
@@ -94,9 +90,6 @@
           }
         },
         "triggers": [
-          {
-            "type": "ImageChange"
-          },
           {
             "type": "ConfigChange"
           },
