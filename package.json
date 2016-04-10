@@ -2,7 +2,7 @@
   "name": "authy2fa-test",
   "version": "0.0.1",
   "description": "Node.js sample app for Authy.com auth2fa on OpenShift 3",
-  "main": "server.js",
+  "main": "index.js",
   "dependencies": {
       "authy": "^0.3.2",
       "bcrypt": "^0.8.1",
@@ -21,7 +21,7 @@
     "npm": "*"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
