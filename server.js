@@ -88,5 +88,5 @@ initDb(function(err){
 });
 
 app.listen(port, ip);
-console.log('AuthyApiKey=' + toString(authyApiKey));
+console.log('AuthyApiKey=' + authyApiKey);
 console.log('Server running on ' + ip + ':' + port);
