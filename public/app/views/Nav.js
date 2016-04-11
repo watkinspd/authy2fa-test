@@ -30,7 +30,7 @@
             // Destroy the current session
             $.ajax('/session', {
                 method: 'DELETE',
-                contentType: 'application/x-www-form-urlencoded',
+                contentType: 'application/json',
                 headers: {
                     'X-API-TOKEN': app.get('token')
                 }
