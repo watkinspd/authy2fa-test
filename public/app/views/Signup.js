@@ -38,8 +38,8 @@
                 method: 'POST',
                 dataType: 'json',
                 headers: {
-                  Content-Type: application/json,
-                  X-Override-Host: authydev-pw.pathfinder.gov.bc.ca
+                  'Content-Type': 'application/json',
+                  'X-Override-Host': 'authydev-pw.pathfinder.gov.bc.ca'
                 },
                 data: {
                     fullName: self.$('#fullName').val(),
