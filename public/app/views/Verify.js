@@ -26,9 +26,9 @@
 
             $.ajax('/session/verify', {
                 method: 'POST',
+                contentType: 'application/x-www-form-urlencoded',
                 headers: {
-                    'X-API-TOKEN': app.get('token'),
-                    'Content-Type': 'application/json'
+                    'X-API-TOKEN': app.get('token')
                 },
                 dataType: 'json',
                 data: {
@@ -57,6 +57,7 @@
 
             $.ajax('/session/resend', {
                 method: 'POST',
+                contentType: 'application/x-www-form-urlencoded',
                 headers: {
                     'X-API-TOKEN': app.get('token')
                 }

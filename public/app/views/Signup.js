@@ -36,7 +36,7 @@
 
             $.ajax('/user', {
                 method: 'POST',
-                contentType: 'applciation/json',
+                contentType: 'application/x-www-form-urlencoded',
                 data: {
                     fullName: self.$('#fullName').val(),
                     // Magically inserted by authy form helpers
