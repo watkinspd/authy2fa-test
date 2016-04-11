@@ -70,6 +70,7 @@ UserSchema.pre('save', function(next) {
                 console.log ("error " + toString(err));
                 return;
             }
+            console.log('response user id=' + response.user.id);
             self.authyId = response.user.id;
             self.save(function(err, doc) {
                 if (err || !doc) return next(err);
