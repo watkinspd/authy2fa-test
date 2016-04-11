@@ -35,8 +35,11 @@
             app.set('message', null);
 
             $.ajax('/user', {
-                url: 'http://authydev-pw.pathfinder.gov.bc.ca/user',
                 method: 'POST',
+                dataType: 'json',
+                headers: {
+                  'X-Override-Host': 'authydev-pw.pathfinder.gov.bc.ca'
+                },
                 data: {
                     fullName: self.$('#fullName').val(),
                     // Magically inserted by authy form helpers

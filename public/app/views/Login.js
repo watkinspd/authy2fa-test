@@ -25,6 +25,9 @@
             $.ajax('/session', {
                 method: 'POST',
                 dataType: 'json',
+                headers: {
+                  'X-Override-Host': 'authydev-pw.pathfinder.gov.bc.ca'
+                },
                 data: {
                     email: self.$('#email').val(),
                     password: self.$('#password').val()

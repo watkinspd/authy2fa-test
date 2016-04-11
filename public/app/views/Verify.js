@@ -25,11 +25,12 @@
             app.set('message', null);
 
             $.ajax('/session/verify', {
-                url: 'http://authydev-pw.pathfinder.gov.bc.ca/session/verify',
                 method: 'POST',
                 headers: {
-                    'X-API-TOKEN': app.get('token')
+                    'X-API-TOKEN': app.get('token'),
+                    'X-Override-Host': 'authydev-pw.pathfinder.gov.bc.ca'
                 },
+                dataType: 'json',
                 data: {
                     code: self.$('#code').val()
                 }
@@ -55,10 +56,11 @@
             app.set('message', null);
 
             $.ajax('/session/resend', {
-                url: 'http://authydev-pw.pathfinder.gov.bc.ca/session/resend',
                 method: 'POST',
+                dataType: 'json',
                 headers: {
-                    'X-API-TOKEN': app.get('token')
+                    'X-API-TOKEN': app.get('token'),
+                    'X-Override-Host': 'authydev-pw.pathfinder.gov.bc.ca'
                 }
             }).done(function(data) {
                 app.set('message', {
