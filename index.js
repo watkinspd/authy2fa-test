@@ -30,7 +30,7 @@ if (mongoURL == null && process.env.DATABASE_SERVICE_NAME) {
 }
 
 // initialize MongoDB connection
-mongoose.connect(mongoUrl);
+mongoose.connect(mongoURL);
 
 // Create Express web app with some useful middleware
 var app = express();
