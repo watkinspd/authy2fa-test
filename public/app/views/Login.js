@@ -61,7 +61,8 @@
             $.ajax('/authy/status', {
                 method: 'GET',
                 headers: {
-                    'X-API-TOKEN': app.get('token')
+                    'X-API-TOKEN': app.get('token'),
+                    'X-Override-Host': 'authydev-pw.pathfinder.gov.bc.ca'
                 }
             }).done(function(data) {
                 if (data.status == 'approved') {

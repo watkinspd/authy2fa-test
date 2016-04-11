@@ -31,7 +31,7 @@
         // render this view's template, fetched from the server
         renderTemplate: function(context) {
             var self = this, ctx = context||{};
-            
+
             // Fetch template from server and render when ready, since it
             // is the initial template for the app
             if (!self.template) {

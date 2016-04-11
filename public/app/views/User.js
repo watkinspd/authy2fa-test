@@ -5,7 +5,7 @@
 
         initialize: function() {
             var self = this;
-            
+
             app.router.on('route:user', function() {
                 // If we already have token and a user, assume logged in
                 if (app.get('token') && app.get('user')) {
@@ -19,7 +19,8 @@
                         url:'/user',
                         method:'GET',
                         headers: {
-                            'X-API-TOKEN': app.get('token')
+                            'X-API-TOKEN': app.get('token'),
+                            'X-Override-Host': 'authydev-pw.pathfinder.gov.bc.ca'
                         }
                     }).done(function(data) {
                         app.set('user', data);
