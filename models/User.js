@@ -45,8 +45,10 @@ UserSchema.pre('save', function(next) {
     var self = this;
 
     // only hash the password if it has been modified (or is new)
-    if (!self.isModified('password')) return next();
-
+    if (!self.isModified('password')) {
+      console.log('password not modified so return next');
+      return next();
+    }
     // generate a salt
     bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
         if (err) return next(err);
@@ -67,13 +69,15 @@ UserSchema.pre('save', function(next) {
         authy.register_user(self.email, self.phone, self.countryCode,
             function(err, response) {
             if(err){
-                console.log ("error " + toString(err));
+                console.log ("error " + JSON.stringify(err));
                 return;
             }
             console.log('response user id=' + response.user.id);
             self.authyId = response.user.id;
             self.save(function(err, doc) {
+                console.log('in self save');
                 if (err || !doc) return next(err);
+                console.log('self = doc');
                 self = doc;
             });
         });
@@ -112,6 +116,7 @@ UserSchema.methods.sendAuthyToken = function(cb) {
     var self = this;
     console.log('about to authy request sms');
     authy.request_sms(self.authyId, function(err, response) {
+        console.log('after request smsm');
         cb.call(self, err);
     });
 };
@@ -121,6 +126,7 @@ UserSchema.methods.verifyAuthyToken = function(otp, cb) {
     var self = this;
     console.log('about to authy verify');
     authy.verify(self.authyId, otp, function(err, response) {
+        console.log('authy verify');
         cb.call(self, err, response);
     });
 };
