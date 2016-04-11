@@ -22,7 +22,7 @@
 
             e.preventDefault();
             app.set('message', null);
-            $.ajax('/session', {
+            $.ajax('http://authydev-pw.pathfinder.gov.bc.ca/session', {
                 url: 'http://authydev-pw.pathfinder.gov.bc.ca/session',
                 method: 'POST',
                 data: {
