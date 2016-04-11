@@ -18,6 +18,7 @@
                     $.ajax({
                         url:'/user',
                         method:'GET',
+                        contentType: 'application/x-www-form-urlencoded',
                         headers: {
                             'X-API-TOKEN': app.get('token')
                         }

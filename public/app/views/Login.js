@@ -57,6 +57,7 @@
             var self = this;
             $.ajax('/authy/status', {
                 method: 'GET',
+                contentType: 'application/x-www-form-urlencoded',
                 headers: {
                     'X-API-TOKEN': app.get('token')
                 }

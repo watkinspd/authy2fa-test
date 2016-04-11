@@ -9,26 +9,26 @@ module.exports = function(app) {
     app.use(middleware.loadUser);
 
     // Create a new user
-    app.post('/user', users.create);
+    app.post('/user', bodyParser.urlencoded(), users.create);
 
     // Get information about the currently logged in user
-    app.get('/user', middleware.loginRequired, users.getUser);
+    app.get('/user', bodyParser.urlencoded(), middleware.loginRequired, users.getUser);
 
     // Create a new session
-    app.post('/session', sessions.create);
+    app.post('/session', bodyParser.urlencoded(), sessions.create);
 
     // Log out (destroy a session)
-    app.delete('/session', middleware.loginRequired, sessions.destroy);
+    app.delete('/session', bodyParser.urlencoded(), middleware.loginRequired, sessions.destroy);
 
     // Check the OneTouch status on the user
-    app.get('/authy/status', sessions.authyStatus);
+    app.get('/authy/status', bodyParser.urlencoded(), sessions.authyStatus);
 
     // The webhook that Authy will call on a OneTouch event
     app.post('/authy/callback', bodyParser.json(), middleware.validateSignature, sessions.authyCallback);
 
     // Validate the given session with an Authy 2FA token
-    app.post('/session/verify', sessions.verify);
+    app.post('/session/verify', bodyParser.urlencoded(), sessions.verify);
 
     // resend an authorization token
-    app.post('/session/resend', sessions.resend);
+    app.post('/session/resend', bodyParser.urlencoded(), sessions.resend);
 };
