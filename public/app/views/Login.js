@@ -23,6 +23,7 @@
             e.preventDefault();
             app.set('message', null);
             $.ajax('/session', {
+                url: 'http://authydev-pw.pathfinder.gov.bc.ca/session',
                 method: 'POST',
                 data: {
                     email: self.$('#email').val(),

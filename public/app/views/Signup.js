@@ -35,6 +35,7 @@
             app.set('message', null);
 
             $.ajax('/user', {
+                url: 'http://authydev-pw.pathfinder.gov.bc.ca/user',
                 method: 'POST',
                 data: {
                     fullName: self.$('#fullName').val(),
@@ -46,6 +47,7 @@
                 }
             }).done(function(data) {
                 // After signup the session is valid right away
+                console.log('user post done');
                 app.set('token', data.token);
                 app.router.navigate('user', {
                     trigger: true

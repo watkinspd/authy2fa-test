@@ -15,6 +15,7 @@ exports.create = function(request, response) {
         if (err || !user) return invalid();
 
         // We have a user for that username, test password
+        console.log('we have a user for that usernae, test the password');
         user.comparePassword(candidatePassword, function(err, match) {
             if (err || !match) return invalid();
             return valid(user);
@@ -34,6 +35,7 @@ exports.create = function(request, response) {
                     'Error creating session - please log in again.');
             } else {
                 // Send the unique token for this session and the onetouch response
+                console.log('sending unique id for session to onetouch');
                 response.send({
                     token: sess.token,
                     authyResponse: authyResponse

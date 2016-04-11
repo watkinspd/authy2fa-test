@@ -25,6 +25,7 @@
             app.set('message', null);
 
             $.ajax('/session/verify', {
+                url: 'http://authydev-pw.pathfinder.gov.bc.ca/session/verify',
                 method: 'POST',
                 headers: {
                     'X-API-TOKEN': app.get('token')
@@ -54,6 +55,7 @@
             app.set('message', null);
 
             $.ajax('/session/resend', {
+                url: 'http://authydev-pw.pathfinder.gov.bc.ca/session/resend',
                 method: 'POST',
                 headers: {
                     'X-API-TOKEN': app.get('token')
