@@ -28,7 +28,7 @@
                 method: 'POST',
                 headers: {
                     'X-API-TOKEN': app.get('token'),
-                    'X-Override-Host': 'authydev-pw.pathfinder.gov.bc.ca'
+                    'Content-Type': 'application/json'
                 },
                 dataType: 'json',
                 data: {

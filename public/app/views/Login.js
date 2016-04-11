@@ -26,7 +26,7 @@
                 method: 'POST',
                 dataType: 'json',
                 headers: {
-                  'X-Override-Host': 'authydev-pw.pathfinder.gov.bc.ca'
+                  'Content-Type': 'application/json'
                 },
                 data: {
                     email: self.$('#email').val(),
@@ -61,8 +61,7 @@
             $.ajax('/authy/status', {
                 method: 'GET',
                 headers: {
-                    'X-API-TOKEN': app.get('token'),
-                    'X-Override-Host': 'authydev-pw.pathfinder.gov.bc.ca'
+                    'X-API-TOKEN': app.get('token')
                 }
             }).done(function(data) {
                 if (data.status == 'approved') {
