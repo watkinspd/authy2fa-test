@@ -41,6 +41,7 @@ var UserSchema = new mongoose.Schema({
 
 // Middleware executed before save - hash the user's password
 UserSchema.pre('save', function(next) {
+   console.log('inpresave');
     var self = this;
 
     // only hash the password if it has been modified (or is new)
@@ -62,11 +63,12 @@ UserSchema.pre('save', function(next) {
 
     if (!self.authyId) {
         // Register this user if it's a new user
+        console.log('in registeruser');
         authy.register_user(self.email, self.phone, self.countryCode,
             function(err, response) {
             if(err){
                 console.log ("error " + toString(err));
-                return; 
+                return;
             }
             self.authyId = response.user.id;
             self.save(function(err, doc) {

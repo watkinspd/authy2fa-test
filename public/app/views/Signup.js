@@ -54,7 +54,7 @@
                 var msg = 'Sorry, an error occurred, please try again.';
                 if (err.responseJSON && err.responseJSON.message)
                     msg = err.responseJSON.message;
-
+                console.log('signupfail' + err.responseJSON.message);
                 app.set('message', {
                     error: true,
                     message: msg
