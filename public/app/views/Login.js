@@ -24,10 +24,7 @@
             app.set('message', null);
             $.ajax('/session', {
                 method: 'POST',
-                dataType: 'json',
-                headers: {
-                  'Content-Type': 'application/json'
-                },
+                contentType: 'application/json',
                 data: {
                     email: self.$('#email').val(),
                     password: self.$('#password').val()

@@ -57,10 +57,8 @@
 
             $.ajax('/session/resend', {
                 method: 'POST',
-                dataType: 'json',
                 headers: {
-                    'X-API-TOKEN': app.get('token'),
-                    'X-Override-Host': 'authydev-pw.pathfinder.gov.bc.ca'
+                    'X-API-TOKEN': app.get('token')
                 }
             }).done(function(data) {
                 app.set('message', {
