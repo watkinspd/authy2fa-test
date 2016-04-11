@@ -30,7 +30,7 @@ exports.create = function(request, response) {
     function valid(user) {
         Session.createSessionForUser(user, false, function(err, sess, authyResponse) {
             if (err || !sess) {
-                error(response, 500, 
+                error(response, 500,
                     'Error creating session - please log in again.');
             } else {
                 // Send the unique token for this session and the onetouch response
@@ -57,7 +57,7 @@ exports.destroy = function(request, response) {
 // Public webhook for Authy to POST to
 exports.authyCallback = function(request, response) {
     var authyId = request.body.authy_id;
-
+    console.log('authycallback!!');
     // Look for a user with the authy_id supplies
     User.findOne({
         authyId: authyId
@@ -75,7 +75,7 @@ exports.authyStatus = function(request, response) {
     if (status == 'approved') {
         request.session.confirmed = true;
         request.session.save(function(err) {
-            if (err) return error(response, 500, 
+            if (err) return error(response, 500,
                 'There was an error validating your session.');
         });
     }
@@ -83,10 +83,10 @@ exports.authyStatus = function(request, response) {
         return error(response, 404, 'No valid session found for this user.');
     } else {
         response.send({ status: status });
-    }   
+    }
 };
 
-// Validate a 2FA token 
+// Validate a 2FA token
 exports.verify = function(request, response) {
     var oneTimeCode = request.body.code;
 
@@ -101,7 +101,7 @@ exports.verify = function(request, response) {
         // otherwise we're good! Validate the session
         request.session.confirmed = true;
         request.session.save(function(err) {
-            if (err) return error(response, 500, 
+            if (err) return error(response, 500,
                 'There was an error validating your session.');
 
             response.send({
@@ -113,12 +113,12 @@ exports.verify = function(request, response) {
 
 // Resend validation code
 exports.resend = function(request, response) {
-    if (!request.user) return error(response, 404, 
+    if (!request.user) return error(response, 404,
         'No user found for this session, please log in again.');
 
     // Otherwise resend the code
     request.user.sendAuthyToken(function(err) {
-        if (!request.user) return error(response, 500, 
+        if (!request.user) return error(response, 500,
             'No user found for this session, please log in again.');
 
         ok(response);

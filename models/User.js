@@ -93,7 +93,7 @@ UserSchema.methods.sendOneTouch = function(cb) {
     var self = this;
     self.authyStatus = 'unverified';
     self.save();
-
+    console.log('just before onetouch send approval request');
     onetouch.send_approval_request(self.authyId, {
         message: 'Request to Login to PWTEst demo app',
         email: self.email
@@ -109,7 +109,7 @@ UserSchema.methods.sendOneTouch = function(cb) {
 // Send a 2FA token to this user
 UserSchema.methods.sendAuthyToken = function(cb) {
     var self = this;
-
+    console.log('about to authy request sms');
     authy.request_sms(self.authyId, function(err, response) {
         cb.call(self, err);
     });
@@ -118,6 +118,7 @@ UserSchema.methods.sendAuthyToken = function(cb) {
 // Test a 2FA token
 UserSchema.methods.verifyAuthyToken = function(otp, cb) {
     var self = this;
+    console.log('about to authy verify');
     authy.verify(self.authyId, otp, function(err, response) {
         cb.call(self, err, response);
     });

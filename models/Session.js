@@ -26,8 +26,10 @@ SessionSchema.statics.createSessionForUser = function(user, conf, cb) {
         confirmed: conf,
         token: uuid.v1()
     });
+    console.log('createSessionForuser');
     // we need to do the 2FA step first
     if (!conf) {
+        console.log('sendingOneTouch');
         user.sendOneTouch(function(err, authyResponse) {
             if (err) return cb.call(newSession, err);
             save(authyResponse);
