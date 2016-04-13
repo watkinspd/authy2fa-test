@@ -8,7 +8,7 @@ var config = require('./config');  // creates config.authyApiKey
 var ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080;
 
-var mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL;
+var mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL || config.mongoURL;
 if (mongoURL == null && process.env.DATABASE_SERVICE_NAME) {
   var mongoServiceName = process.env.DATABASE_SERVICE_NAME.toUpperCase();
   var mongoHost = process.env[mongoServiceName + "_SERVICE_HOST"];
@@ -28,6 +28,8 @@ if (mongoURL == null && process.env.DATABASE_SERVICE_NAME) {
     mongoURL += mongoHost + ':' + mongoPort + '/' + process.env.MONGODB_DATABASE;
   }
 }
+
+console.log ('mongoURL=' + mongoURL);
 
 // initialize MongoDB connection
 mongoose.connect(mongoURL);

@@ -24,7 +24,6 @@
             app.set('message', null);
             $.ajax('/session', {
                 method: 'POST',
-                contentType: 'application/json',
                 data: {
                     email: self.$('#email').val(),
                     password: self.$('#password').val()
@@ -57,7 +56,6 @@
             var self = this;
             $.ajax('/authy/status', {
                 method: 'GET',
-                contentType: 'application/json',
                 headers: {
                     'X-API-TOKEN': app.get('token')
                 }
